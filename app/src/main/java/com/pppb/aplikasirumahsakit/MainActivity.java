@@ -1,9 +1,7 @@
 package com.pppb.aplikasirumahsakit;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
 import com.pppb.aplikasirumahsakit.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

@@ -11,7 +11,7 @@
         android:text="Buat Pertemuan"
         android:textColor="@color/black"
         android:textSize="30dp"
-        android:layout_marginBottom="20dp">
+        android:layout_margin="20dp">
     </TextView>
 
     <LinearLayout
