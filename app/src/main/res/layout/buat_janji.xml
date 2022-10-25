@@ -147,11 +147,11 @@
                 android:gravity="center">
             </TextView>
 
-<!--            <TimePicker-->
-<!--                android:id="@+id/timePicker1"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content">-->
-<!--            </TimePicker>-->
+            <TimePicker
+                android:id="@+id/timePicker1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TimePicker>
 
         </LinearLayout>
 
