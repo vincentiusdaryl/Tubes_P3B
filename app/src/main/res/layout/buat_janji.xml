@@ -65,13 +65,11 @@
                 android:gravity="center">
             </TextView>
 
-            <EditText
+            <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Nama Dokter"
-                android:textSize="15dp"
                 android:layout_marginLeft="20dp">
-            </EditText>
+            </Spinner>
 
         </LinearLayout>
 
@@ -121,13 +119,13 @@
                 android:gravity="center">
             </TextView>
 
-            <EditText
+            <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Tanggal Pertemuan"
-                android:textSize="15dp"
-                android:layout_marginLeft="6dp">
-            </EditText>
+                android:endYear="2022"
+                android:startYear="2022"
+                android:datePickerMode="spinner">
+            </Spinner>
 
         </LinearLayout>
 
@@ -149,13 +147,11 @@
                 android:gravity="center">
             </TextView>
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Waktu Pertemuan"
-                android:textSize="15dp"
-                android:layout_marginLeft="22dp">
-            </EditText>
+<!--            <TimePicker-->
+<!--                android:id="@+id/timePicker1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
+<!--            </TimePicker>-->
 
         </LinearLayout>
 
