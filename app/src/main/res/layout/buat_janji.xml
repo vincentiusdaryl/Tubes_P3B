@@ -119,13 +119,14 @@
                 android:gravity="center">
             </TextView>
 
-            <Spinner
+            <DatePicker
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:endYear="2022"
                 android:startYear="2022"
+                android:calendarViewShown="false"
                 android:datePickerMode="spinner">
-            </Spinner>
+            </DatePicker>
 
         </LinearLayout>
 
@@ -150,7 +151,9 @@
             <TimePicker
                 android:id="@+id/timePicker1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="100dp"
+                android:layout_marginLeft="15dp"
+                android:timePickerMode="spinner">
             </TimePicker>
 
         </LinearLayout>
