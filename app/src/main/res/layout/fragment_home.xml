@@ -20,7 +20,7 @@
             android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:src="@drawable/logoRS"
+            android:src="@drawable/logorumahsakit"
             />
         <Button
             android:layout_width="200dp"
@@ -28,6 +28,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="150dp"
             android:text="Buat Pertemuan"
+            android:id="@+id/buatPertemuan"
             />
 
     </LinearLayout>
