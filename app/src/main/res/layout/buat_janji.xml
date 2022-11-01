@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".BuatJanji"
+    >
 
     <TextView
         android:layout_width="match_parent"
@@ -119,14 +122,12 @@
                 android:gravity="center">
             </TextView>
 
-            <DatePicker
+            <EditText
+                android:id="@+id/etDate"
                 android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:endYear="2022"
-                android:startYear="2022"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner">
-            </DatePicker>
+                android:layout_height="wrap_content"
+                android:hint="dd/mm/yyyy">
+            </EditText>
 
         </LinearLayout>
 
@@ -159,13 +160,12 @@
         </LinearLayout>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_centerInParent="true"
-            android:text="Simpan"
+            android:layout_marginTop="150dp"
             android:backgroundTint="#565656"
-            android:layout_marginTop="250dp">
+            android:text="Buat Pertemuan">
         </Button>
 
     </LinearLayout>
