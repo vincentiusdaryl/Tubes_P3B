@@ -12,31 +12,30 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
 
+import com.pppb.aplikasirumahsakit.databinding.FragmentHomeBinding;
+
 public class fragment_home extends Fragment {
 
-    private FragmentManager fragmentManager;
+    FragmentHomeBinding binding;
     public fragment_home(){
 
     }
+    public static fragment_home newInstance(){
+        fragment_home fragment = new fragment_home();
+        return fragment;
+    }
+
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_home,container,false);
-
-        this.getParentFragmentManager().setFragmentResultListener("msg", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                String msg = result.getString("msg");
-                setMessage(msg);
-            }
-        });
-
-        return view;
+        binding = FragmentHomeBinding.inflate(inflater);
+        binding.buatPertemuan.setOnClickListener(this::onClick);
+        return binding.getRoot();
     }
 
     public static fragment_home newInstance(String title) {
         fragment_home fragment = new fragment_home();
         Bundle args = new Bundle();
-        args.putString("title", title);
+        args.putString("home", title);
         fragment.setArguments(args);
         return fragment;
     }
@@ -45,10 +44,6 @@ public class fragment_home extends Fragment {
         Bundle result = new Bundle();
         result.putInt("page", 2);
         this.getParentFragmentManager().setFragmentResult("changePage", result);
-    }
-
-    public void setMessage(String msg) {
-
     }
 
 }
