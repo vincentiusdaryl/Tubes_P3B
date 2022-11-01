@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -20,7 +21,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -126,7 +128,9 @@
                 android:id="@+id/etDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="dd/mm/yyyy">
+                android:layout_marginLeft="7dp"
+                android:textSize="15dp"
+                android:hint="Tentukan Tanggal">
             </EditText>
 
         </LinearLayout>
@@ -149,23 +153,25 @@
                 android:gravity="center">
             </TextView>
 
-            <TimePicker
-                android:id="@+id/timePicker1"
+            <EditText
+                android:id="@+id/etTime"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_marginLeft="15dp"
-                android:timePickerMode="spinner">
-            </TimePicker>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:textSize="15dp"
+                android:hint="Tentukan Waktu">
+            </EditText>
 
         </LinearLayout>
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="50dp"
             android:backgroundTint="#565656"
-            android:text="Buat Pertemuan">
+            android:text="Buat Pertemuan"
+            android:textAllCaps="false">
         </Button>
 
     </LinearLayout>
