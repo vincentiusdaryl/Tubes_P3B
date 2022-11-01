@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected FragmentManager fragmentManager;
     protected fragment_left fragmentLeft;
     protected fragment_dokter fragmentDokter;
+    protected fragment_buatjanji fragmentBuatjanji;
 
 
     @Override
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         this.fragmentHome = fragment_home.newInstance();
         this.fragmentLeft = fragment_left.newInstance();
         this.fragmentDokter = fragment_dokter.newInstance();
+        this.fragmentBuatjanji = fragment_buatjanji.newInstance();
 
         drawer = binding.drawerLayout;
 
@@ -66,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
         else if(page==0){
             this.moveTaskToBack(true);
             this.finish();
+        }
+        else if (page==3){
+            ft.replace(binding.fragmentContainer.getId(),this.fragmentBuatjanji).addToBackStack(null).setReorderingAllowed(true);
         }
         ft.commit();
     }

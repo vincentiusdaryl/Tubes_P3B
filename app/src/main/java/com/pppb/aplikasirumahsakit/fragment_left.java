@@ -49,6 +49,11 @@ public static fragment_left newInstance(){
         result.putInt("page",2);
         getParentFragmentManager().setFragmentResult("changePage", result);
     }
+    else if(view == binding.buttonPertemuan){
+        Bundle result = new Bundle();
+        result.putInt("page",3);
+        getParentFragmentManager().setFragmentResult("changePage",result);
+    }
 
     }
 }
