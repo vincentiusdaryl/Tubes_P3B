@@ -14,7 +14,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Rumah sakit Sehat Selalu"
-            android:textSize="55dp"
+            android:textSize="50dp"
+            android:layout_marginTop="70dp"
+
             />
         <ImageView
             android:layout_marginTop="100dp"
