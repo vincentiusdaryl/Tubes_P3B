@@ -44,17 +44,15 @@ private void setListDokter(ArrayList<dokter> listDokter){
         View itemView = view;
 
         if (itemView == null) {
-            itemView = LayoutInflater.from(context)
-                    .inflate(R.layout.list_dokter, viewGroup, false);
+            itemView = LayoutInflater.from(context).inflate(R.layout.list_dokter, viewGroup, false);
         }
 
         ViewHolder viewHolder = new ViewHolder(itemView);
         dokter dokter = (dokter) getItem(i);
         System.out.println(dokter.getNama());
 
-        viewHolder.bind(dokter);
+        viewHolder.add(dokter);
         return binding.getRoot();
-
 
     }
     private class ViewHolder{
@@ -62,8 +60,9 @@ private void setListDokter(ArrayList<dokter> listDokter){
         ViewHolder(View view){
 
         }
-        void bind(dokter dokter){
-
+        void add(dokter dokter){
+            binding.namaDokter.setText(dokter.getNama());
+            binding.spesialisDokter.setText(dokter.getSpesialis());
         }
     }
 

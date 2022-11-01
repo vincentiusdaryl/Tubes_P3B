@@ -7,7 +7,7 @@ public class dokter implements Parcelable{
     private String nama;
     private String id;
     private String noTelp;
-
+    private String spesialis;
     public dokter(){
 
     }
@@ -16,6 +16,7 @@ public class dokter implements Parcelable{
         this.id = in.readString();
         this.nama = in.readString();
         this.noTelp = in.readString();
+        this.spesialis = in.readString();
     }
 
     public void setId(String id){
@@ -27,6 +28,8 @@ public class dokter implements Parcelable{
     public void setNoTelp(String noTelpon) {
         this.noTelp = noTelpon;
     }
+    public void setSpesialis(){this.spesialis = spesialis;}
+    public String getSpesialis(){return this.spesialis;}
     public String getid() {
         return this.id;
     }
@@ -36,6 +39,7 @@ public class dokter implements Parcelable{
     public String getNoTelp(){
         return this.noTelp;
     }
+
 
     @Override
     public int describeContents() {
@@ -47,6 +51,7 @@ public class dokter implements Parcelable{
         dest.writeString(this.id);
         dest.writeString(this.nama);
         dest.writeString(this.noTelp);
+        dest.writeString(this.spesialis);
     }
 
     public static final Parcelable.Creator<dokter> CREATOR = new Parcelable.Creator<dokter>() {

@@ -36,12 +36,17 @@ public static fragment_left newInstance(){
     private void onClick(View view){
     if(view == binding.buttonHome){
         Bundle result = new Bundle();
-        result.putInt("page",2);
+        result.putInt("page",1);
         getParentFragmentManager().setFragmentResult("changePage", result);
     }
     else if(view == binding.buttonExit){
         Bundle result = new Bundle();
         result.putInt("page",0);
+        getParentFragmentManager().setFragmentResult("changePage", result);
+    }
+    else if(view == binding.buttonDokter){
+        Bundle result = new Bundle();
+        result.putInt("page",2);
         getParentFragmentManager().setFragmentResult("changePage", result);
     }
 
