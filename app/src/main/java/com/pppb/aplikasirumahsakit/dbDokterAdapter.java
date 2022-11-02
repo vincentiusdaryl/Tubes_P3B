@@ -9,21 +9,21 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class dbDokterAdapter {
 
     private static final String DB_Name = "Dokters.db";
-    private static final String DB_TABLE = "Dokters_Table";
+    private static final String DB_TABLE = "DOKTERS_TABLE";
 
     //Kolom
-    public static final String ID = "ID";
-    public static final String NAMA = "NAMA";
-    public static final String SPESIALIS = "SPESIALIS";
-    public static final String NOTELP = "NOTELPON";
+    public static final String KEY_ID = "_id";
+    public static final String KEY_NAMA = "nama";
+    public static final String KEY_SPESIALIS = "spesialis";
+    public static final String KEY_NOTELP = "noTelpon";
 
-    public static final String[] ALL_KEYS = new String[]{ID,NAMA,SPESIALIS,NOTELP};
+    public static final String[] ALL_KEYS = new String[]{KEY_ID,KEY_NAMA,KEY_SPESIALIS,KEY_NOTELP};
     //bikinTabel
-    private static final String CREATE_TABLE = "CREATE TABLE " + DB_TABLE + " (" +
-            ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, "+
-            NAMA+ " TEXT, "+
-            SPESIALIS+ " TEXT,"+
-            NOTELP+ "TEXT"+
+    public static final String CREATE_TABLE = "CREATE TABLE " + DB_TABLE + " (" +
+            KEY_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+            KEY_NAMA+ " TEXT, "+
+            KEY_SPESIALIS+ " TEXT,"+
+            KEY_NOTELP+ "TEXT"+
             ")" ;
     private final Context context;
     private dbHelper myDBHelper;
@@ -44,30 +44,30 @@ public class dbDokterAdapter {
     }
     public long insertBaris(String nama,String spesialis,String noTelp){
         ContentValues initialValues = new ContentValues();
-        initialValues.put(NAMA,nama);
-        initialValues.put(SPESIALIS,spesialis);
-        initialValues.put(NOTELP,noTelp);
+        initialValues.put(KEY_NAMA,nama);
+        initialValues.put(KEY_SPESIALIS,spesialis);
+        initialValues.put(KEY_NOTELP,noTelp);
 
         //Insert data ke DB
         return db.insert(DB_TABLE,null,initialValues);
     }
 
-    public boolean deleteRow(long rowID){
-        String where = ID + "=" + rowID;
+    public boolean deleteBaris(long rowID){
+        String where = KEY_ID + "=" + rowID;
         return db.delete(DB_TABLE,where,null)!=0;
     }
     public void deleteAll(){
-        Cursor c = getSmuaBaris();
-        long rowID = c.getColumnIndexOrThrow(ID);
+        Cursor c = getSemuaBaris();
+        long rowID = c.getColumnIndexOrThrow(KEY_ID);
         if(c.moveToFirst()){
             do{
-                deleteRow(c.getLong((int) rowID));
+                deleteBaris(c.getLong((int) rowID));
             } while (c.moveToNext());
         }
         c.close();
     }
     //Return data-data di DB
-    public Cursor getSmuaBaris(){
+    public Cursor getSemuaBaris(){
         String where = null;
         Cursor c = db.query(true,DB_TABLE,ALL_KEYS,where,null,null,null,null,null);
         if(c!=null){
@@ -77,7 +77,7 @@ public class dbDokterAdapter {
     }
 
     public Cursor getBaris(long rowID){
-        String where = ID + "=" + rowID;
+        String where = KEY_ID + "=" + rowID;
         Cursor c = db.query(true,DB_TABLE,ALL_KEYS,where,null,null,null,null,null);
         if(c!=null){
             c.moveToFirst();
@@ -85,12 +85,12 @@ public class dbDokterAdapter {
         return c;
     }
 
-    public boolean updateRow(long rowID,String nama,String spesialisasi,String noTelp){
-        String where = ID + "=" + rowID;
+    public boolean updateBaris(long rowID,String nama,String spesialisasi,String noTelp){
+        String where = KEY_ID + "=" + rowID;
         ContentValues isi = new ContentValues();
-        isi.put(NAMA,nama);
-        isi.put(SPESIALIS,spesialisasi);
-        isi.put(NOTELP,noTelp);
+        isi.put(KEY_NAMA,nama);
+        isi.put(KEY_SPESIALIS,spesialisasi);
+        isi.put(KEY_NOTELP,noTelp);
         //insert ke DB
         return db.update(DB_TABLE,isi,where,null)!=0;
     }
@@ -99,7 +99,7 @@ public class dbDokterAdapter {
     private static class dbHelper extends SQLiteOpenHelper{
 
         dbHelper(Context context){
-            super(context,DB_Name,null,1);
+            super(context,DB_Name,null,5);
         }
         @Override
         public void onCreate(SQLiteDatabase db) {

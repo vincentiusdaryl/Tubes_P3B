@@ -14,14 +14,12 @@ import com.pppb.aplikasirumahsakit.databinding.FragmentListDokterBinding;
 import java.util.ArrayList;
 
 public class fragment_dokter extends Fragment {
+    fragment_tambahdokter db;
     FragmentListDokterBinding binding;
     private listDokterAdapter adapter;
     private ArrayList<dokter> dokterList;
-    // Make sure to use the FloatingActionButton for all the FABs
-    FloatingActionButton mAddFab, mTambahDokter, mEditDokter, mDeleteDokter;
 
-    // These are taken to make visible and invisible along with FABs
-    TextView addAlarmActionText, addPersonActionText;
+    FloatingActionButton mAddFab, mTambahDokter, mEditDokter, mDeleteDokter;
 
     // to check whether sub FAB buttons are visible or not.
     Boolean isAllFabsVisible;

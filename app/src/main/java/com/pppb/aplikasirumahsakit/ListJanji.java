@@ -8,20 +8,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.pppb.aplikasirumahsakit.databinding.FragmentListJanjiBinding;
+
 public class ListJanji extends Fragment {
-
+FragmentListJanjiBinding binding;
     public ListJanji() {
-        // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
     }
+    public static ListJanji newInstance(){
+        ListJanji fragment = new ListJanji();
+        return fragment;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+        binding = FragmentListJanjiBinding.inflate(inflater);
+        return binding.getRoot();
     }
 }
