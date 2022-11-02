@@ -5,62 +5,102 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center"
         >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tambah dokter"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:layout_margin="20dp">
+        </TextView>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/customborder"
             android:layout_gravity="center"
+            android:padding="30dp"
             >
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-
-                android:layout_gravity="center"
                 >
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Masukan nama :"
+                    android:text="Masukan nama"
                     android:textSize="20dp"
+                    android:textColor="@color/black"
                     />
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nama Dokter"
+                    android:id="@+id/etNamaDokter"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="34.5dp"
                     />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-
-                android:layout_gravity="center"
                 >
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Masukan Spesialis :"
+                    android:text="Masukan Spesialis"
                     android:textSize="20dp"
+                    android:textColor="@color/black"
                     />
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Spesialis"
+                    android:id="@+id/etSpesialis"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp"
                     />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No. Telp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="081234567890"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="98dp"
+                    android:id="@+id/etNoTelp"
+                    />
+
+            </LinearLayout>
+
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,6 +110,7 @@
             <Button
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Tambah"
                 />
         </LinearLayout>
