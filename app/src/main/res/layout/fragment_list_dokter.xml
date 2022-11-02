@@ -54,8 +54,7 @@
             app:fabSize="normal"
             app:layout_constraintBottom_toTopOf="@+id/add_fab"
             app:layout_constraintEnd_toEndOf="@+id/add_fab"
-            app:layout_constraintStart_toStartOf="@+id/add_fab"
-            app:src="@android:drawable/tambah" />
+            app:layout_constraintStart_toStartOf="@+id/add_fab"/>
 
         <TextView
             android:id="@+id/tvTambahDokter"
@@ -75,8 +74,7 @@
             app:fabSize="normal"
             app:layout_constraintBottom_toTopOf="@+id/fabTambahDokter"
             app:layout_constraintEnd_toEndOf="@+id/fabTambahDokter"
-            app:layout_constraintStart_toStartOf="@+id/fabTambahDokter"
-            app:src="android:@drawable/edit" />
+            app:layout_constraintStart_toStartOf="@+id/fabTambahDokter"/>
 
         <TextView
             android:id="@+id/tvEditDokter"
@@ -96,11 +94,10 @@
             app:fabSize="normal"
             app:layout_constraintBottom_toTopOf="@+id/fabEditDokter"
             app:layout_constraintEnd_toEndOf="@+id/fabEditDokter"
-            app:layout_constraintStart_toStartOf="@+id/fabEditDokter"
-            app:src="android:@drawable/delete" />
+            app:layout_constraintStart_toStartOf="@+id/fabEditDokter"/>
 
         <TextView
-            android:id="@+id/add_person_action_text"
+            android:id="@+id/tvDeleteDokter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"

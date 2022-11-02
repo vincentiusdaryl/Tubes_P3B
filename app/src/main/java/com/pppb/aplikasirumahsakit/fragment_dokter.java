@@ -18,7 +18,7 @@ public class fragment_dokter extends Fragment {
     private listDokterAdapter adapter;
     private ArrayList<dokter> dokterList;
     // Make sure to use the FloatingActionButton for all the FABs
-    FloatingActionButton mAddFab, mAddAlarmFab, mAddPersonFab;
+    FloatingActionButton mAddFab, mTambahDokter, mEditDokter, mDeleteDokter;
 
     // These are taken to make visible and invisible along with FABs
     TextView addAlarmActionText, addPersonActionText;
@@ -37,33 +37,57 @@ public class fragment_dokter extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         binding = FragmentListDokterBinding.inflate(inflater);
         dokterList = new ArrayList<>();
-        binding.addAlarmActionText.setVisibility(View.GONE);
-        mAddAlarmFab.setVisibility(View.GONE);
-        mAddPersonFab.setVisibility(View.GONE);
-        binding.addDokter.setVisibility(View.GONE);
+        mAddFab = binding.addFab;
+        mDeleteDokter = binding.fabDeleteDokter;
+        mEditDokter = binding.fabEditDokter;
+        mTambahDokter = binding.fabTambahDokter;
+
+        binding.tvEditDokter.setVisibility(View.GONE);
+        mDeleteDokter.setVisibility(View.GONE);
+        mTambahDokter.setVisibility(View.GONE);
+        mEditDokter.setVisibility(View.GONE);
+        binding.tvTambahDokter.setVisibility(View.GONE);
+        binding.tvDeleteDokter.setVisibility(View.GONE);
 
         isAllFabsVisible = false;
         binding.addFab.setOnClickListener(this::onClickFAB);
-
+        mTambahDokter.setOnClickListener(this::onClickTambahDokter);
+        mEditDokter.setOnClickListener(this::onClickEditDokter);
+        mDeleteDokter.setOnClickListener(this::onClickDeleteDokter);
         return binding.getRoot();
     }
 
     public void onClickFAB(View view){
         if(!isAllFabsVisible){
-            mAddAlarmFab.show();
-            mAddPersonFab.show();
-            binding.addAlarmActionText.setVisibility(View.VISIBLE);
-            binding.addDokter.setVisibility(View.VISIBLE);
+            mEditDokter.show();
+            mTambahDokter.show();
+            mDeleteDokter.show();
+            binding.tvDeleteDokter.setVisibility(View.VISIBLE);
+            binding.tvTambahDokter.setVisibility(View.VISIBLE);
+            binding.tvEditDokter.setVisibility(View.VISIBLE);
 
             isAllFabsVisible = true;
         }
         else{
-            mAddAlarmFab.hide();
-            mAddPersonFab.hide();
-            binding.addAlarmActionText.setVisibility(View.GONE);
-            binding.addDokter.setVisibility(View.GONE);
+            mDeleteDokter.hide();
+            mTambahDokter.hide();
+            mEditDokter.hide();
+            binding.tvEditDokter.setVisibility(View.GONE);
+            binding.tvDeleteDokter.setVisibility(View.GONE);
+            binding.tvTambahDokter.setVisibility(View.GONE);
             isAllFabsVisible = false;
         }
+    }
+    public void onClickTambahDokter(View view){
+        Bundle result = new Bundle();
+        result.putInt("page",4);
+        getParentFragmentManager().setFragmentResult("changePage",result);
+    }
+    public void onClickEditDokter(View view){
+
+    }
+    public void onClickDeleteDokter(View view){
+
     }
 
 }

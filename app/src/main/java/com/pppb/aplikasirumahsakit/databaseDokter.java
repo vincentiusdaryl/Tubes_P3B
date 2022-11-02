@@ -14,11 +14,14 @@ public class databaseDokter extends SQLiteOpenHelper {
     private static final String ID = "ID";
     private static final String NAMA = "NAMA";
     private static final String SPESIALIS = "SPESIALIS";
+    private static final String NOTELP = "NOTELPON";
 
     private static final String CREATE_TABLE = "CREATE TABLE " + DB_TABLE + " (" +
             ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, "+
             NAMA+ " TEXT, "+
-            SPESIALIS+ " TEXT "+ ")" ;
+            SPESIALIS+ " TEXT,"+
+            NOTELP+ "TEXT"+
+            ")" ;
 
     public databaseDokter(Context context){
         super(context, DB_Name, null, 1);
@@ -36,11 +39,12 @@ public class databaseDokter extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insertData(String nama, String spesialis){
+    public boolean insertData(String nama, String spesialis,String noTelp){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(NAMA,nama);
         contentValues.put(SPESIALIS,spesialis);
+        contentValues.put(NOTELP,noTelp);
 
         long result = db.insert(DB_TABLE,null,contentValues);
 

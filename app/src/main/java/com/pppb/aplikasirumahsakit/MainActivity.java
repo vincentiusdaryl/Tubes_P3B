@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected fragment_left fragmentLeft;
     protected fragment_dokter fragmentDokter;
     protected fragment_buatjanji fragmentBuatjanji;
+    protected fragment_tambahdokter fragmentTambahdokter;
 
 
     @Override
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         this.fragmentLeft = fragment_left.newInstance();
         this.fragmentDokter = fragment_dokter.newInstance();
         this.fragmentBuatjanji = fragment_buatjanji.newInstance();
-
+        this.fragmentTambahdokter = fragment_tambahdokter.newInstance();
         drawer = binding.drawerLayout;
 
         fragmentManager = getSupportFragmentManager();
@@ -71,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (page==3){
             ft.replace(binding.fragmentContainer.getId(),this.fragmentBuatjanji).addToBackStack(null).setReorderingAllowed(true);
+        }
+        else if(page==4){
+            ft.replace(binding.fragmentContainer.getId(),this.fragmentTambahdokter).addToBackStack(null).setReorderingAllowed(true);
         }
         ft.commit();
         drawer.closeDrawers();

@@ -35,9 +35,13 @@ databaseDokter db;
     public void onClick(View view){
         String name = binding.etNamaDokter.getText().toString();
         String spesialis = binding.etSpesialis.getText().toString();
+        String noTelp = binding.etNoTelp.getText().toString();
 
-        if(!name.equals("")&&!spesialis.equals("")&&db.insertData(name,spesialis)){
+        if(!name.equals("")&&!spesialis.equals("")&&db.insertData(name,spesialis,noTelp)){
             Toast.makeText(getContext(), "Data saved", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getContext(), "Data has failed to be saved!", Toast.LENGTH_SHORT).show();
         }
     }
 
