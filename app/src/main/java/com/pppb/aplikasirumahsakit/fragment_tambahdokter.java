@@ -27,8 +27,8 @@ databaseDokter db;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         binding = FragmentTambahdokterBinding.inflate(inflater);
         db = new databaseDokter(requireContext());
-
         binding.btnAdd.setOnClickListener(this::onClick);
+        return binding.getRoot();
     }
     public void onClick(View view){
         String name = binding.etNamaDokter.getText().toString();
@@ -36,6 +36,13 @@ databaseDokter db;
 
         if(!name.equals("")&&!spesialis.equals("")&&db.insertData(name,spesialis)){
             Toast.makeText(getContext(), "Data saved", Toast.LENGTH_SHORT).show();
+            binding.tvNama.setText("");
+            binding.tvNotelp.setText("");
+            binding.tvSpesialis.setText("");
         }
+        else{
+            Toast.makeText(getContext(), "Data failed to be saved!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
