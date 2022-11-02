@@ -39,7 +39,6 @@
                     android:text="Masukan nama"
                     android:textSize="20dp"
                     android:textColor="@color/black"
-                    android:id="@+id/tvNama"
                     />
 
                 <EditText
@@ -64,7 +63,6 @@
                     android:text="Masukan Spesialis"
                     android:textSize="20dp"
                     android:textColor="@color/black"
-                    android:id="@+id/tvSpesialis"
                     />
 
                 <EditText
@@ -89,7 +87,6 @@
                     android:text="No. Telp"
                     android:textSize="20dp"
                     android:textColor="@color/black"
-                    android:id="@+id/tvNotelp"
                     />
 
                 <EditText
