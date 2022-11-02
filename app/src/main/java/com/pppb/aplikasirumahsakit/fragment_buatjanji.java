@@ -3,25 +3,28 @@ package com.pppb.aplikasirumahsakit;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.pppb.aplikasirumahsakit.databinding.BuatJanjiBinding;
 import java.util.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class fragment_buatjanji extends Fragment{
+public class fragment_buatjanji extends Fragment implements View.OnClickListener{
     BuatJanjiBinding binding ;
-    int day;
-    int month;
-    int year;
-    int hour;
-    int minute;
+    private TextView tvDate;
+    private TextView tvTime;
+    private DatePickerDialog.OnDateSetListener dateSetListener;
+    private int day, month, year, hour, minute;
 
     public fragment_buatjanji(){
     }
@@ -29,51 +32,53 @@ public class fragment_buatjanji extends Fragment{
         fragment_buatjanji fragment_buatjanji = new fragment_buatjanji();
         return fragment_buatjanji;
     }
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        binding = BuatJanjiBinding.inflate(inflater);
-        binding.buatPertemuan.setOnClickListener(this::onClick);
 
+    public View onCreateView(View view, @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        view = inflater.inflate(R.layout.buat_janji, container, false);
+        this.tvDate = view.findViewById(R.id.tvDate);
+        this.tvTime = view.findViewById(R.id.tvTime);
 
-        final Calendar calendar = Calendar.getInstance();
+        tvDate.setOnClickListener(view1 -> {
+            Calendar calendar = Calendar.getInstance();
+            this.year = calendar.get(Calendar.YEAR);
+            this.month = calendar.get(Calendar.MONTH);
+            this.day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        binding.etDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                day = calendar.get(Calendar.DAY_OF_MONTH);
-                month = calendar.get(Calendar.MONTH);
-                year = calendar.get(Calendar.YEAR);
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(fragment_buatjanji.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int day, int month, int year) {
-                        binding.etDate.setText(SimpleDateFormat.getDateInstance().format(calendar.getTime()));
-                    }
-                }, year, month, day);
-                datePickerDialog.show();
-            }
+            DatePickerDialog dialog = new DatePickerDialog(getContext(), android.R.style.Theme_DeviceDefault, dateSetListener, year, month, day);
+            dialog.show();
         });
 
-        binding.etTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar calendar = Calendar.getInstance();
-                hour = calendar.get(Calendar.HOUR_OF_DAY);
-                minute = calendar.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog = new TimePickerDialog(BuatJanji.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
-                        binding.etTime.setText(hourOfDay + ":" + minute);
-                    }
-                }, hour, minute, true);
-                timePickerDialog.show();
-            }
+        dateSetListener = (datePicker, day, month, year) -> {
+            month = month + 1;
+
+            String date = day + "/" + month + "/" + year;
+            tvDate.setText(date);
+        };
+
+        tvTime.setOnClickListener(view1 -> {
+            Calendar mcurrentTime = Calendar.getInstance();
+            int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+            int minute = mcurrentTime.get(Calendar.MINUTE);
+
+            TimePickerDialog timePickerDialog;
+            timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                    tvTime.setText(selectedHour + ":" + selectedMinute);
+                }
+            }, hour, minute, false);
+            timePickerDialog.setTitle("Select Time");
+            timePickerDialog.show();
         });
-        return binding.getRoot();
+
+        return view;
     }
 
-    private void onClick(View view){
+
+    public void onClick(View view){
         Bundle result = new Bundle();
         result.putInt("page",1);
         getParentFragmentManager().setFragmentResult("changePage",result);
     }
+
 }

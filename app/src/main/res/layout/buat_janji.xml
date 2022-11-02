@@ -124,14 +124,14 @@
                 android:gravity="center">
             </TextView>
 
-            <EditText
-                android:id="@+id/etDate"
+            <TextView
+                android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:textSize="15dp"
                 android:hint="Tentukan Tanggal">
-            </EditText>
+            </TextView>
 
         </LinearLayout>
 
@@ -153,14 +153,14 @@
                 android:gravity="center">
             </TextView>
 
-            <EditText
-                android:id="@+id/etTime"
+            <TextView
+                android:id="@+id/tvTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:textSize="15dp"
                 android:hint="Tentukan Waktu">
-            </EditText>
+            </TextView>
 
         </LinearLayout>
 
