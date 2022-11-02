@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:text="Daftar Dokter"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="30dp"-->
-<!--        android:layout_margin="20dp">-->
-<!--    </TextView>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,4 +25,89 @@
         android:layout_gravity="center"
         android:layout_centerInParent="true">
     </ListView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        tools:ignore="HardcodedText">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabTambahDokter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toTopOf="@+id/add_fab"
+            app:layout_constraintEnd_toEndOf="@+id/add_fab"
+            app:layout_constraintStart_toStartOf="@+id/add_fab"
+            app:src="@android:drawable/tambah" />
+
+        <TextView
+            android:id="@+id/tvTambahDokter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Tambah Dokter"
+            app:layout_constraintBottom_toBottomOf="@+id/fabTambahDokter"
+            app:layout_constraintEnd_toStartOf="@+id/fabTambahDokter"
+            app:layout_constraintTop_toTopOf="@+id/fabTambahDokter" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabEditDokter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toTopOf="@+id/fabTambahDokter"
+            app:layout_constraintEnd_toEndOf="@+id/fabTambahDokter"
+            app:layout_constraintStart_toStartOf="@+id/fabTambahDokter"
+            app:src="android:@drawable/edit" />
+
+        <TextView
+            android:id="@+id/tvEditDokter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Edit Dokter"
+            app:layout_constraintBottom_toBottomOf="@+id/fabEditDokter"
+            app:layout_constraintEnd_toStartOf="@+id/fabEditDokter"
+            app:layout_constraintTop_toTopOf="@+id/fabEditDokter" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabDeleteDokter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toTopOf="@+id/fabEditDokter"
+            app:layout_constraintEnd_toEndOf="@+id/fabEditDokter"
+            app:layout_constraintStart_toStartOf="@+id/fabEditDokter"
+            app:src="android:@drawable/delete" />
+
+        <TextView
+            android:id="@+id/add_person_action_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Delete Dokter"
+            app:layout_constraintBottom_toBottomOf="@+id/fabDeleteDokter"
+            app:layout_constraintEnd_toStartOf="@+id/fabDeleteDokter"
+            app:layout_constraintTop_toTopOf="@+id/fabDeleteDokter" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </RelativeLayout>

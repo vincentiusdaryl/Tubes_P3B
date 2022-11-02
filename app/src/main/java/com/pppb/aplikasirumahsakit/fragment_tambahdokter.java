@@ -31,6 +31,7 @@ databaseDokter db;
         binding.btnAdd.setOnClickListener(this::onClick);
         return binding.getRoot();
     }
+
     public void onClick(View view){
         String name = binding.etNamaDokter.getText().toString();
         String spesialis = binding.etSpesialis.getText().toString();
@@ -39,4 +40,5 @@ databaseDokter db;
             Toast.makeText(getContext(), "Data saved", Toast.LENGTH_SHORT).show();
         }
     }
+
 }
