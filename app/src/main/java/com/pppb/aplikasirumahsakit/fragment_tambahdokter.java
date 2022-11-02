@@ -1,7 +1,6 @@
 package com.pppb.aplikasirumahsakit;
 
-import android.app.Activity;
-import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +10,15 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import com.pppb.aplikasirumahsakit.databinding.FragmentTambahdokterBinding;
 
+import java.util.ArrayList;
+
 public class fragment_tambahdokter extends Fragment {
 
 FragmentTambahdokterBinding binding;
-databaseDokter db;
+dbDokterAdapter db;
+ArrayList<String> listItems;
+private dokter dokters;
+
     public fragment_tambahdokter(){
 
     }
@@ -26,23 +30,44 @@ databaseDokter db;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         binding = FragmentTambahdokterBinding.inflate(inflater);
-        db = new databaseDokter(requireContext());
+        openDB();
 
+        listItems = new ArrayList<>();
         binding.btnAdd.setOnClickListener(this::onClick);
         return binding.getRoot();
     }
+
 
     public void onClick(View view){
         String name = binding.etNamaDokter.getText().toString();
         String spesialis = binding.etSpesialis.getText().toString();
         String noTelp = binding.etNoTelp.getText().toString();
 
-        if(!name.equals("")&&!spesialis.equals("")&&db.insertData(name,spesialis,noTelp)){
-            Toast.makeText(getContext(), "Data saved", Toast.LENGTH_SHORT).show();
+        if(!name.equals("")) {
+            Toast.makeText(getContext(), "Isi nama dokter!", Toast.LENGTH_SHORT).show();
+        }
+        else if(!spesialis.equals("")){
+            Toast.makeText(getContext(), "isi spesialis dokter!", Toast.LENGTH_SHORT).show();
+        }
+        else if(!noTelp.equals("")){
+            Toast.makeText(getContext(), "isi no telpon dokter!", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(getContext(), "Data has failed to be saved!", Toast.LENGTH_SHORT).show();
+            db.insertBaris(name,spesialis,noTelp);
+            Toast.makeText(getContext(), "Data dokter berhasil disimpan!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    //ngisi listviewnya dengan data dari db
+    public void isiListView(){
+        Cursor cursor = db.getSmuaBaris();
+        String[] fieldnames = new String[] {dbDokterAdapter.ID,dbDokterAdapter.NAMA,dbDokterAdapter.SPESIALIS,dbDokterAdapter.NOTELP};
+        int[] viewIDS = new int[] {R.id.namaDokter,R.id.
+    }
+    //buka DBnya
+    private void openDB(){
+        db = new dbDokterAdapter(getContext());
+        db.open();
     }
 
 }
