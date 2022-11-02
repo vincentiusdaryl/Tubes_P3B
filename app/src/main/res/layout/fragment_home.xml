@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF9B0"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Rumah sakit Sehat Selalu"
+            android:textColor="@color/black"
             android:textSize="50dp"
             android:layout_marginTop="70dp"
 
@@ -29,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="100dp"
+            android:backgroundTint="#FF577F"
             android:text="Buat Pertemuan"
             android:id="@+id/buatPertemuan"
             />
