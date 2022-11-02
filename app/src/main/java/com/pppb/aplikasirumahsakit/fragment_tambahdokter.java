@@ -28,10 +28,10 @@ databaseDokter db;
         binding = FragmentTambahdokterBinding.inflate(inflater);
         db = new databaseDokter(requireContext());
 
-        binding.add.setOnClickListener(this::onClick);
+        binding.btnAdd.setOnClickListener(this::onClick);
     }
     public void onClick(View view){
-        String name = binding.etNama.getText().toString();
+        String name = binding.etNamaDokter.getText().toString();
         String spesialis = binding.etSpesialis.getText().toString();
 
         if(!name.equals("")&&!spesialis.equals("")&&db.insertData(name,spesialis)){
