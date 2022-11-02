@@ -12,7 +12,7 @@ public class listDokterAdapter extends BaseAdapter{
 
 private Context context;
 ListDokterBinding binding;
-ArrayList<dokter> listDokter = new ArrayList<>();
+private ArrayList<dokter> listDokter = new ArrayList<>();
 
 private void setListDokter(ArrayList<dokter> listDokter){
     this.listDokter = listDokter;
