@@ -1,20 +1,31 @@
 package com.pppb.aplikasirumahsakit;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 
 import java.util.ArrayList;
+
+import com.pppb.aplikasirumahsakit.databinding.FragmentListDokterBinding;
 import com.pppb.aplikasirumahsakit.databinding.ListDokterBinding;
 public class listDokterAdapter extends BaseAdapter{
 
 private Context context;
 ListDokterBinding binding;
 private ArrayList<dokter> listDokter = new ArrayList<>();
+private Button telepon;
 
-private void setListDokter(ArrayList<dokter> listDokter){
+    public listDokterAdapter() {
+        
+    }
+
+    private void setListDokter(ArrayList<dokter> listDokter){
     this.listDokter = listDokter;
 }
     public listDokterAdapter(Context context){
@@ -55,6 +66,27 @@ private void setListDokter(ArrayList<dokter> listDokter){
         return binding.getRoot();
 
     }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = ListDokterBinding.inflate(inflater);
+
+        this.telepon = binding.telepon;
+        this.telepon.setOnClickListener(this::onClick);
+        return binding.getRoot();
+    }
+
+    public void onClick (View view) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:082227535478"));
+//        startActivity(intent);
+    }
+
+
+    public static listDokterAdapter newInstance() {
+        listDokterAdapter fragment = new listDokterAdapter();
+        return fragment;
+    }
+
     private class ViewHolder{
 
         ViewHolder(View view){
