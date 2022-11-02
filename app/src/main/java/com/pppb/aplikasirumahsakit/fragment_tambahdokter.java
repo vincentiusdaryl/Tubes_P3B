@@ -29,6 +29,7 @@ databaseDokter db;
         db = new databaseDokter(requireContext());
 
         binding.btnAdd.setOnClickListener(this::onClick);
+        return binding.getRoot();
     }
     public void onClick(View view){
         String name = binding.etNamaDokter.getText().toString();

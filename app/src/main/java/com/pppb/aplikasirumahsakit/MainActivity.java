@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             ft.replace(binding.fragmentContainer.getId(),this.fragmentBuatjanji).addToBackStack(null).setReorderingAllowed(true);
         }
         ft.commit();
+        drawer.closeDrawers();
     }
 
 }
