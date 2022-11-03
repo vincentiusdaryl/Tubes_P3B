@@ -62,6 +62,9 @@ private dokter dokters;
         else{
             db.insertBaris(name,spesialis,noTelp);
             Toast.makeText(getContext(), "Data dokter berhasil disimpan!", Toast.LENGTH_SHORT).show();
+            Bundle result = new Bundle();
+            result.putInt("page",2);
+            getParentFragmentManager().setFragmentResult("changePage",result);
         }
     }
 

@@ -36,12 +36,18 @@ public class fragment_Deletedokter extends Fragment {
         }else{
             db.deleteBarisNama(namaDokter);
             Toast.makeText(getActivity(), "Data dokter berhasil dihapus", Toast.LENGTH_SHORT).show();
+            Bundle result = new Bundle();
+            result.putInt("page",2);
+            getParentFragmentManager().setFragmentResult("changePage",result);
         }
     }
 
     private void onClickhapusSemua(View view){
         db.deleteAll();
         Toast.makeText(getActivity(), "Data dokter berhasil dihapus semua", Toast.LENGTH_SHORT).show();
+        Bundle result = new Bundle();
+        result.putInt("page",2);
+        getParentFragmentManager().setFragmentResult("changePage",result);
     }
 
 }
