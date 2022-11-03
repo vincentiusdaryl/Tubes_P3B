@@ -66,6 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="Tambah Dokter"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/fabTambahDokter"
             app:layout_constraintEnd_toStartOf="@+id/fabTambahDokter"
             app:layout_constraintTop_toTopOf="@+id/fabTambahDokter" />
@@ -86,6 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="Edit Dokter"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/fabEditDokter"
             app:layout_constraintEnd_toStartOf="@+id/fabEditDokter"
             app:layout_constraintTop_toTopOf="@+id/fabEditDokter" />
@@ -107,6 +109,7 @@
             android:layout_marginEnd="8dp"
             android:text="Delete Dokter"
             app:layout_constraintBottom_toBottomOf="@+id/fabDeleteDokter"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@+id/fabDeleteDokter"
             app:layout_constraintTop_toTopOf="@+id/fabDeleteDokter" />
     </androidx.constraintlayout.widget.ConstraintLayout>

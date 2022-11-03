@@ -1,9 +1,13 @@
 package com.pppb.aplikasirumahsakit;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -14,10 +18,12 @@ import com.pppb.aplikasirumahsakit.databinding.FragmentListDokterBinding;
 import java.util.ArrayList;
 
 public class fragment_dokter extends Fragment {
-    fragment_tambahdokter db;
     FragmentListDokterBinding binding;
-    private listDokterAdapter adapter;
-    private ArrayList<dokter> dokterList;
+    listDokterAdapter adapter;
+    ArrayList<dokter> arrayList;
+    dbDokterAdapter db;
+    SimpleCursorAdapter myAdapter;
+    ListView listView;
 
     FloatingActionButton mAddFab, mTambahDokter, mEditDokter, mDeleteDokter;
 
@@ -32,9 +38,20 @@ public class fragment_dokter extends Fragment {
         return fragment_dokter;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        db = new dbDokterAdapter(getActivity());
+//        this.listView = getActivity().findViewById(R.id.lstViewDokter);
+//        showDokterData();
+
+        isiListView();
+    }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         binding = FragmentListDokterBinding.inflate(inflater);
-        dokterList = new ArrayList<>();
+//        isiListView();
+
         mAddFab = binding.addFab;
         mDeleteDokter = binding.fabDeleteDokter;
         mEditDokter = binding.fabEditDokter;
@@ -53,6 +70,13 @@ public class fragment_dokter extends Fragment {
         mEditDokter.setOnClickListener(this::onClickEditDokter);
         mDeleteDokter.setOnClickListener(this::onClickDeleteDokter);
         return binding.getRoot();
+    }
+
+    private void showDokterData() {
+        arrayList = db.getDokterData();
+        adapter = new listDokterAdapter(getActivity(), arrayList);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
     public void onClickFAB(View view){
@@ -85,7 +109,19 @@ public class fragment_dokter extends Fragment {
 
     }
     public void onClickDeleteDokter(View view){
-
+    Bundle result = new Bundle();
+    result.putInt("page",5);
+    getParentFragmentManager().setFragmentResult("changePage",result);
+    }
+    //    ngisi listviewnya dengan data dari db
+    public void isiListView(){
+        db.open();
+        Cursor cursor = db.getSemuaBaris();
+        String[] fieldnames = new String[] {dbDokterAdapter.KEY_ID,dbDokterAdapter.KEY_NAMA,dbDokterAdapter.KEY_SPESIALIS,dbDokterAdapter.KEY_NOTELP};
+        int[] viewIDS = new int[] {R.id.idDokter,R.id.namaDokter,R.id.spesialisDokter,R.id.noTelp};
+        myAdapter = new SimpleCursorAdapter(requireActivity(),R.layout.list_dokter,cursor,fieldnames,viewIDS,0);
+        ListView myList = getActivity().findViewById(R.id.lstViewDokter);
+        myList.setAdapter(myAdapter);
     }
 
 }

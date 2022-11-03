@@ -3,68 +3,53 @@ package com.pppb.aplikasirumahsakit;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class dokter implements Parcelable{
+public class dokter{
     private String nama;
     private String id;
     private String noTelp;
     private String spesialis;
-    public dokter(){
 
+    public String getNama() {
+        return nama;
     }
 
-    protected dokter(Parcel in) {
-        this.id = in.readString();
-        this.nama = in.readString();
-        this.noTelp = in.readString();
-        this.spesialis = in.readString();
-    }
-
-    public void setId(String id){
-        this.id=id;
-    }
     public void setNama(String nama) {
         this.nama = nama;
     }
-    public void setNoTelp(String noTelpon) {
-        this.noTelp = noTelpon;
+
+    public String getId() {
+        return id;
     }
-    public void setSpesialis(){this.spesialis = spesialis;}
-    public String getSpesialis(){return this.spesialis;}
-    public String getid() {
-        return this.id;
+
+    public void setId(String id) {
+        this.id = id;
     }
-    public String getNama() {
-        return this.nama;
+
+    public String getNoTelp() {
+        return noTelp;
     }
-    public String getNoTelp(){
-        return this.noTelp;
+
+    public void setNoTelp(String noTelp) {
+        this.noTelp = noTelp;
+    }
+
+    public String getSpesialis() {
+        return spesialis;
+    }
+
+    public void setSpesialis(String spesialis) {
+        this.spesialis = spesialis;
+    }
+
+    public dokter(String nama, String noTelp, String id, String spesialis) {
+        this.nama = nama;
+        this.id = id;
+        this.noTelp = noTelp;
+        this.spesialis = spesialis;
+
     }
 
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int i) {
-        dest.writeString(this.id);
-        dest.writeString(this.nama);
-        dest.writeString(this.noTelp);
-        dest.writeString(this.spesialis);
-    }
-
-    public static final Parcelable.Creator<dokter> CREATOR = new Parcelable.Creator<dokter>() {
-        @Override
-        public dokter createFromParcel(Parcel in) {
-            return new dokter(in);
-        }
-
-        @Override
-        public dokter[] newArray(int size) {
-            return new dokter[size];
-        }
-    };
 
 
 }

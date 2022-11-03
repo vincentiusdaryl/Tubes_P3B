@@ -12,13 +12,12 @@ public class listDokterAdapter extends BaseAdapter{
 
 private Context context;
 ListDokterBinding binding;
-private ArrayList<dokter> listDokter = new ArrayList<>();
+private ArrayList<dokter> listDokter;
 
-private void setListDokter(ArrayList<dokter> listDokter){
-    this.listDokter = listDokter;
-}
-    public listDokterAdapter(Context context){
+
+    public listDokterAdapter(Context context,ArrayList<dokter> listDokter){
         this.context = context;
+        this.listDokter = listDokter;
     }
 
     @Override
@@ -61,8 +60,10 @@ private void setListDokter(ArrayList<dokter> listDokter){
 
         }
         void add(dokter dokter){
+            binding.idDokter.setText(dokter.getId());
             binding.namaDokter.setText(dokter.getNama());
             binding.spesialisDokter.setText(dokter.getSpesialis());
+            binding.noTelp.setText(dokter.getNoTelp());
         }
     }
 
